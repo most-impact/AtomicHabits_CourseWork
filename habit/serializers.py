@@ -8,7 +8,7 @@ class HabitSerializers(serializers.ModelSerializer):
         model = Habit
         fields = [
             "id",
-            "users",
+            "user",
             "place",
             "time",
             "action",

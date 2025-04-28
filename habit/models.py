@@ -56,7 +56,7 @@ class Habit(models.Model):
 
     def save(self, *args, **kwargs):
         self.full_clean()
-        super().save(*args, *kwargs)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.action} в {self.time} в {self.place}"
