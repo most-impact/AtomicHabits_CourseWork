@@ -1,14 +1,10 @@
 from django.urls import path
 
-from .views import (HabitListCreateView, HabitRetrieveUpdateDestroyView,
-                    PublicHabitListView)
+from .views import UserHabitListAPIView, PublicHabitListAPIView, HabitCreateAPIView, HabitRetrieveUpdateDestroyAPIView
 
 urlpatterns = [
-    path("habits/", HabitListCreateView.as_view(), name="habit-list-create"),
-    path(
-        "habits/<int:pk>/",
-        HabitRetrieveUpdateDestroyView.as_view(),
-        name="habit-detail",
-    ),
-    path("public-habits/", PublicHabitListView.as_view(), name="public-habits"),
+    path("habits/", UserHabitListAPIView.as_view(), name="user-habit-list"),
+    path("public-habits/", PublicHabitListAPIView.as_view(), name="public-habit-list"),
+    path("habits/create/", HabitCreateAPIView.as_view(), name="habit-create"),
+    path("habits/<int:pk>/", HabitRetrieveUpdateDestroyAPIView.as_view(), name="habit-detail"),
 ]
